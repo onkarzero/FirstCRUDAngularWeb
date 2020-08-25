@@ -1,6 +1,6 @@
 
 <!-- Toolbar -->
-<div class="navbar bg-primary">
+<nav class="navbar bg-primary">
   <div class="row">
     <div class="col-md-2">
       <img
@@ -12,5 +12,34 @@
     <div class="col-md-8 mt-2">
       <h4>{{ headerTitle }}</h4>
     </div>
+  </div>
+</nav>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8">
+      <ul class="list-group mb-4">
+        <li *ngFor="let jugador of jugadorArray" class="list-group-item list-group-item-action">
+          <span class="badge badge-primary ">{{ jugador.id }}</span>  {{ jugador.nombre }} - {{ jugador.equipo }}
+        </li>
+      </ul> 
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title pt-1">
+            Inserte a un nuevo Jugador
+          </div>
+          <div class="form-group">
+            <input type="text" [(ngModel)]="jugadorSeleccionado.nombre" placeholder="Inserte un nombre" class="form-control">
+          </div>  
+          <div class="form-group">
+            <input type="text" [(ngModel)]="jugadorSeleccionado.equipo" placeholder="Inserte un equipo" class="form-control">
+          </div>
+          <button (click)="agregarEditar" class="btn btn-primary">
+            Enviar
+          </button>
+        </div>
+      </div> 
+    </div>
+
+    <div class="col-md-4"></div>
   </div>
 </div>
